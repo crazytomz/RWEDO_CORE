@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1300
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RWEDO", "RWEDO\RWEDO.csproj", "{45C74CBD-5656-4838-9979-A089950B97EF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6CFB8726-7C20-4404-8F00-97EF74F8AF96} = {6CFB8726-7C20-4404-8F00-97EF74F8AF96}
+		{C4B29596-99F6-4A0F-A6DC-2448236CEC07} = {C4B29596-99F6-4A0F-A6DC-2448236CEC07}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RWEDO.DataTransferObject", "RWEDO.DataTransferObject\RWEDO.DataTransferObject.csproj", "{C4B29596-99F6-4A0F-A6DC-2448236CEC07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RWEDO.MSQLRepository", "RWEDO.MSQLRepository\RWEDO.MSQLRepository.csproj", "{6CFB8726-7C20-4404-8F00-97EF74F8AF96}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C4B29596-99F6-4A0F-A6DC-2448236CEC07} = {C4B29596-99F6-4A0F-A6DC-2448236CEC07}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45C74CBD-5656-4838-9979-A089950B97EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45C74CBD-5656-4838-9979-A089950B97EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45C74CBD-5656-4838-9979-A089950B97EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45C74CBD-5656-4838-9979-A089950B97EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4B29596-99F6-4A0F-A6DC-2448236CEC07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4B29596-99F6-4A0F-A6DC-2448236CEC07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4B29596-99F6-4A0F-A6DC-2448236CEC07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4B29596-99F6-4A0F-A6DC-2448236CEC07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CFB8726-7C20-4404-8F00-97EF74F8AF96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CFB8726-7C20-4404-8F00-97EF74F8AF96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CFB8726-7C20-4404-8F00-97EF74F8AF96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CFB8726-7C20-4404-8F00-97EF74F8AF96}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1D1C46F-6300-46B1-A6A3-9D6B8A057B65}
+	EndGlobalSection
+EndGlobal
