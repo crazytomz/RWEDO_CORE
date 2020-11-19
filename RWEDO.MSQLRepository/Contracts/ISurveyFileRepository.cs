@@ -7,10 +7,10 @@ namespace RWEDO.MSQLRepository.Contracts
 {
     public interface ISuveyFileRepository
     {
-        SurveyFile GetSurveyFile(int Id);
+        SurveyFile GetSurveyFile(int ID);
         IEnumerable<SurveyFile> GetAllSurveyFile();
         SurveyFile Add(SurveyFile SurveyFile);
         SurveyFile Update(SurveyFile SurveyFileChanges);
-        SurveyFile Delete(int id);
+        SurveyFile Delete(int ID);
     }
 }

@@ -20,9 +20,9 @@ namespace RWEDO.MSQLRepository.Services
             return SurveyFile;
         }
 
-        public SurveyFile Delete(int id)
+        public SurveyFile Delete(int ID)
         {
-            SurveyFile SurveyFile = context.SurveyFiles.Find(id);
+            SurveyFile SurveyFile = context.SurveyFiles.Find(ID);
             if (SurveyFile != null)
             {
                 context.SurveyFiles.Remove(SurveyFile);
@@ -36,16 +36,9 @@ namespace RWEDO.MSQLRepository.Services
             return context.SurveyFiles;
         }
 
-        public SurveyFile GetSurveyFile(int Id)
+        public SurveyFile GetSurveyFile(int ID)
         {
-            //logger.LogTrace("Trace Log");
-            //logger.LogDebug("Debug Log");
-            //logger.LogInformation("Information Log");
-            //logger.LogWarning("Warning Log");
-            //logger.LogError("Error Log");
-            //logger.LogCritical("Critical Log");
-
-            return context.SurveyFiles.Find(Id);
+            return context.SurveyFiles.Find(ID);
         }
 
         public SurveyFile Update(SurveyFile SurveyFileChanges)

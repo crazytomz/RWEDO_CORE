@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +28,13 @@ namespace RWEDO
         {
             services.AddDbContextPool<RWEDODbContext>(
                 options => options.UseSqlServer(_config.GetConnectionString("DBConnection")));
+            services.AddMvc();
+            services.AddAuthentication("CookieAuthentication")
+                    .AddCookie("CookieAuthentication", options =>
+                    {
+                        options.AccessDeniedPath = new PathString("/Account/Forbidden/");
+                        options.LoginPath = new PathString("/Account/Index");
+                    });
 
         }
 
@@ -36,10 +45,10 @@ namespace RWEDO
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.Run(async (context) =>
+            app.UseStaticFiles();
+            app.UseMvc(routes =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                routes.MapRoute("default", "{controller=Account}/{action=Login}");
             });
         }
     }
