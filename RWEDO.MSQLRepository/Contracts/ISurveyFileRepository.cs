@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RWEDO.MSQLRepository.Contracts
 {
-    public interface ISuveyFileRepository
+    public interface ISurveyFileRepository
     {
         SurveyFile GetSurveyFile(int ID);
         IEnumerable<SurveyFile> GetAllSurveyFile();

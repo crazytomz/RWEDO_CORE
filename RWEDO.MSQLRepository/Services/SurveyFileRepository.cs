@@ -6,7 +6,7 @@ using System.Text;
 
 namespace RWEDO.MSQLRepository.Services
 {
-    public class SurveyFileRepository : ISuveyFileRepository
+    public class SurveyFileRepository : ISurveyFileRepository
     {
         private readonly RWEDODbContext context;
         public SurveyFileRepository(RWEDODbContext context)

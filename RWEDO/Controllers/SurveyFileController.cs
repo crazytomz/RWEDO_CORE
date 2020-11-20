@@ -11,13 +11,13 @@ namespace RWEDO.Controllers
     [Authorize]
     public class SurveyFileController : Controller
     {
-        private readonly ISuveyFileRepository _surveyFileRepository;
-        public SurveyFileController(ISuveyFileRepository surveyFileRepository)
+        private readonly ISurveyFileRepository _surveyFileRepository;
+        public SurveyFileController(ISurveyFileRepository surveyFileRepository)
         {
             _surveyFileRepository = surveyFileRepository;
         }
         [Authorize(Roles = "SAdmin,CEO,Employee")]
-        public IActionResult Index()
+        public ActionResult Index()
         {
             var model = _surveyFileRepository.GetAllSurveyFile();                            
             return View(model);

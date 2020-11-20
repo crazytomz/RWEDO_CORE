@@ -35,7 +35,7 @@ namespace RWEDO.Controllers
         }
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -47,7 +47,7 @@ namespace RWEDO.Controllers
                 }
                 var surveyor = _surveyorRepository.GetSurveyor(user.SurveyorID);
                 var userRole = _userRoleRepository.GetUserRole(user.UserRoleID);
-                model.ReturnURL = string.IsNullOrEmpty(model.ReturnURL) ? returnUrl : model.ReturnURL;
+                //model.ReturnURL = string.IsNullOrEmpty(model.ReturnURL) ? returnUrl : model.ReturnURL;
                 if (surveyor != null && userRole !=null)
                 {
                     var claims = new List<Claim>
@@ -61,13 +61,13 @@ namespace RWEDO.Controllers
                     var userIdentity = new ClaimsIdentity(claims, "CookieAuthentication");
                     ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
                     await HttpContext.SignInAsync("CookieAuthentication", principal, new AuthenticationProperties { ExpiresUtc = DateTime.UtcNow.AddMinutes(60) });
-                    if (string.IsNullOrEmpty(returnUrl))
+                    if (string.IsNullOrEmpty(model.ReturnURL))
                     {
-                        return RedirectToAction("Index", "SurveyFile");
+                        return RedirectToLandingPage();
                     }
                     else
                     {
-                        return Redirect(returnUrl);
+                        return Redirect(model.ReturnURL);
                     }
                 }
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
@@ -76,9 +76,14 @@ namespace RWEDO.Controllers
             return View(model);
         }
         [AllowAnonymous]
+        public ActionResult RedirectToLandingPage()
+        {
+            return RedirectToAction("Index", "SurveyFile");
+        }
+        [AllowAnonymous]
         public ActionResult Forbidden()
         {
             return View();
-        }
-    }
+        }        
+    }  
 }

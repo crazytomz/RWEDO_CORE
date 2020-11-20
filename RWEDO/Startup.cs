@@ -28,8 +28,8 @@ namespace RWEDO
             services.AddAuthentication("CookieAuthentication")
                     .AddCookie("CookieAuthentication", options =>
                     {
-                        options.AccessDeniedPath = new PathString("/Account/Forbidden/");
-                        options.LoginPath = new PathString("/Account/Index");
+                        options.AccessDeniedPath = new PathString("/Account/Forbidden");
+                        options.LoginPath = new PathString("/Account/Login");
                     });
             // services.AddScoped<IUserRepository, UserRepository>();
             // services.AddScoped<ISurveyorRepository, SurveyorRepository>();
@@ -54,9 +54,10 @@ namespace RWEDO
                 app.UseDeveloperExceptionPage();
             }
             app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseMvc(routes =>
             {
-                routes.MapRoute("default", "{controller=Account}/{action=Login}");
+                routes.MapRoute("default", "{controller=Account}/{action=Login}/{id?}");
             });
         }
     }
