@@ -2,21 +2,20 @@
 using RWEDO.MSQLRepository.Contracts;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace RWEDO.MSQLRepository.Services
 {
-    public class UserRepository: IUserRepository
+    public class UserRoleRepository : IUserRoleRepository
     {
         private readonly RWEDODbContext context;
-        public UserRepository(RWEDODbContext context)
+        public UserRoleRepository(RWEDODbContext context)
         {
             this.context = context;
         }
-        public User GetUserUsingCredentials(string userName, string password)
+        public UserRole GetUserRole(int ID)
         {
-            return context.Users.Where(x => x.UserName == userName && x.Password == password).FirstOrDefault();
+            return context.UserRoles.Find(ID);
         }
     }
 }
